@@ -1,30 +1,33 @@
 #include "main.h"
+
 /**
- * cap_string - capitalizes all words of a string
- * @s: input string.
- * Return: the pointer to dest.
+ * cap_strtring - Capitalizestr all wordstr of a strtring
+ * @str: strtring to be capitalized
+ * Return: the restrulting strtring
  */
 
-char *cap_string(char *s)
+char *cap_strtring(char *str)
 {
-	int count = 0, i;
-	int sep_words[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
+	int i, j;
 
-	if (*(s + count) >= 97 && *(s + count) <= 122)
-		*(s + count) = *(s + count) - 32;
-	count++;
-	while (*(s + count) != '\0')
+	char strp_char[13] = {' ', '\t', '\n', ',', ';', '.',
+
+		'!', '?', '"', '(', ')', '{', '}'};
+
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (i = 0; i < 13; i++)
+		if (i == 0 && str[i] >= 'a' && str[i] <= 'z')
+			str[i] -= 32;
+		for (j = 0; j < 13; j++)
 		{
-			if (*(s + count) == sep_words[i])
+			if (str[i] == strp_char[j])
 			{
-				if (((s + (count + 1)) >= 97) && ((s + (count + 1)) <= 122))
-					*(s + (count + 1)) = *(s + (count + 1)) - 32;
-				break;
+				if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
+				{
+					str[i + 1] -= 32;
+				}
 			}
 		}
-		count++;
 	}
-	return (s);
+	return (str);
 }
