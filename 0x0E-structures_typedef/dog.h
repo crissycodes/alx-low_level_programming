@@ -14,12 +14,6 @@ struct dog
 	float age;
 	char *owner;
 
-}
-
-/**
- * my_dog - struct dog
- */
-
-struct dog my_dog;
+};
 
 #endif
